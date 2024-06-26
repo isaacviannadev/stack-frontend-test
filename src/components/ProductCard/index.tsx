@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useStore } from '@/store/cartStore';
+import { formatPrice } from '@/utils/priceFormatter';
 import {
   Button,
   Card,
@@ -25,18 +26,37 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const addToCart = useStore((state) => state.addToCart);
 
+  const formattedPrice = formatPrice(price);
+
   return (
-    <Card>
-      <CardMedia component='img' height='140' image={images[0]} alt={title} />
+    <Card
+      sx={{
+        maxWidth: 300,
+      }}
+    >
+      <CardMedia
+        component='img'
+        sx={{
+          height: 240,
+          objectFit: 'cover',
+        }}
+        image={images[0]}
+        alt={title}
+      />
       <CardContent>
-        <Typography gutterBottom variant='h5' component='div'>
+        <Typography gutterBottom variant='h5' component='h5'>
           {title}
         </Typography>
         <Typography variant='body2' color='text.secondary'>
-          ${price}
+          {formattedPrice}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions
+        sx={{
+          display: 'flex',
+          justifyContent: 'end',
+        }}
+      >
         <Button
           size='small'
           onClick={() => addToCart({ id, title, price, images })}
