@@ -1,0 +1,7 @@
+import styled from '@emotion/styled';
+import { Box } from '@mui/material';
+
+export const SearchContainer = styled(Box)`
+  display: flex;
+  gap: 16px;
+`;
