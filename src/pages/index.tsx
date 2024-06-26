@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { useState } from 'react';
 
 import CartDrawer from '@/components/CartDrawer';
@@ -5,9 +6,9 @@ import ErrorComponent from '@/components/ErrorComponent';
 import LoadingComponent from '@/components/LoadingComponent';
 import ProductList from '@/components/ProductList';
 import SearchBar from '@/components/SearchBar';
-import { useProducts } from '@/hooks/useProducts';
 import { Box } from '@mui/material';
-import Head from 'next/head';
+
+import { useProducts } from '@/hooks/useProducts';
 
 const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');

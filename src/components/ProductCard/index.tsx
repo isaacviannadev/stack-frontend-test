@@ -29,11 +29,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const formattedPrice = formatPrice(price);
 
   return (
-    <Card
-      sx={{
-        maxWidth: 300,
-      }}
-    >
+    <Card>
       <CardMedia
         component='img'
         sx={{
