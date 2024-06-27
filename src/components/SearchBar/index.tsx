@@ -1,34 +1,49 @@
 import { useStore } from '@/store/cartStore';
-import { Button, TextField } from '@mui/material';
+import { Badge, IconButton, TextField } from '@mui/material';
+import { Search, ShoppingCart } from 'lucide-react';
 import React, { useState } from 'react';
-import { SearchContainer } from './styled';
+import { SearchArea, SearchContainer } from './styled';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const { toggleDrawer } = useStore();
+  const { totalItems, toggleDrawer } = useStore();
   const [query, setQuery] = useState('');
 
   const handleSearch = () => {
     onSearch(query);
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <SearchContainer>
-      <TextField
-        label='Search Products'
-        variant='outlined'
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <Button variant='contained' onClick={handleSearch}>
-        Search
-      </Button>
-      <Button variant='contained' onClick={toggleDrawer}>
-        Open Cart
-      </Button>
+      <SearchArea>
+        <TextField
+          label='Buscar Produtos'
+          variant='outlined'
+          size='small'
+          sx={{ width: '50%' }}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyPress}
+        />
+        <IconButton color='primary' onClick={handleSearch}>
+          <Search size={24} />
+        </IconButton>
+      </SearchArea>
+
+      <Badge badgeContent={totalItems} color='secondary'>
+        <IconButton color='primary' onClick={toggleDrawer}>
+          <ShoppingCart size={24} />
+        </IconButton>
+      </Badge>
     </SearchContainer>
   );
 };

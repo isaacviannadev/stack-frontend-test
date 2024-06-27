@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-export const ErrorContainer = styled.div`
+export const ErrorContainer = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 80px);
 `;

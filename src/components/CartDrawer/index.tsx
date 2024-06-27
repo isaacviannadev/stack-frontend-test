@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useStore } from '@/store/cartStore';
+import { formatPrice } from '@/utils/priceFormatter';
 import {
   Avatar,
   Box,
@@ -13,22 +14,29 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
+import { Minus, Plus, X } from 'lucide-react';
 
 const CartDrawer: React.FC = () => {
-  const {
-    cart,
-    incrementItem,
-    decrementItem,
-    removeItem,
-    isOpen,
-    toggleDrawer,
-  } = useStore();
+  const { cart, incrementItem, decrementItem, isOpen, toggleDrawer } =
+    useStore();
 
   return (
     <Drawer anchor='right' open={isOpen} onClose={toggleDrawer}>
       <Box sx={{ width: 350, p: 2 }}>
-        <Typography variant='h6'>Cart</Typography>
-        <List>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Typography variant='h6'>Seu Carrinho</Typography>
+          <IconButton color='primary' edge='end' onClick={toggleDrawer}>
+            <X />
+          </IconButton>
+        </Box>
+
+        <List dense>
           {cart.map((item) => (
             <ListItem key={item.id}>
               <ListItemAvatar>
@@ -36,17 +44,22 @@ const CartDrawer: React.FC = () => {
               </ListItemAvatar>
               <ListItemText
                 primary={item.title}
-                secondary={`$${item.price} x ${item.quantity}`}
+                secondary={`${formatPrice(item.price)} x ${item.quantity}`}
               />
-              <ListItemSecondaryAction>
-                <IconButton edge='end' onClick={() => decrementItem(item.id)}>
-                  -
+              <ListItemSecondaryAction sx={{ display: 'flex', gap: '8px' }}>
+                <IconButton
+                  edge='end'
+                  color='primary'
+                  onClick={() => decrementItem(item.id)}
+                >
+                  <Minus size={14} />
                 </IconButton>
-                <IconButton edge='end' onClick={() => incrementItem(item.id)}>
-                  +
-                </IconButton>
-                <IconButton edge='end' onClick={() => removeItem(item.id)}>
-                  x
+                <IconButton
+                  edge='end'
+                  color='primary'
+                  onClick={() => incrementItem(item.id)}
+                >
+                  <Plus size={14} />
                 </IconButton>
               </ListItemSecondaryAction>
             </ListItem>
