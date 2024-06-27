@@ -18,7 +18,7 @@ interface ProductCardProps {
   images: string[];
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({
+export const ProductCard: React.FC<ProductCardProps> = ({
   id,
   title,
   price,

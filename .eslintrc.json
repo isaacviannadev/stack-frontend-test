@@ -1,3 +1,20 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.spec.tsx"],
+      "rules": {
+        "react/jsx-uses-react": "on",
+        "react/react-in-jsx-scope": "on"
+      }
+    }
+  ]
 }

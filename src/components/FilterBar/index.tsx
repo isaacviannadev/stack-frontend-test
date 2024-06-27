@@ -19,7 +19,7 @@ interface FilterBarProps {
   onFilter: (selectedCategories: string[], sortOrder: string) => void;
 }
 
-const FilterBar: React.FC<FilterBarProps> = ({
+export const FilterBar: React.FC<FilterBarProps> = ({
   categories,
   selectedCategories,
   setSelectedCategories,
@@ -48,6 +48,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
         borderRight: { xs: 'none', md: '1px solid #e3e3e3' },
         minWidth: 240,
       }}
+      aria-label='filter-bar'
     >
       <Typography variant='h6'>Filtrar Categorias</Typography>
       <FormControl component='fieldset'>

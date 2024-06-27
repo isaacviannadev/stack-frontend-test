@@ -7,7 +7,7 @@ interface ErrorComponentProps {
   message: string;
 }
 
-const ErrorComponent: React.FC<ErrorComponentProps> = ({ message }) => (
+export const ErrorComponent: React.FC<ErrorComponentProps> = ({ message }) => (
   <ErrorContainer>
     <Typography color='error'>{message}</Typography>
   </ErrorContainer>

@@ -1,16 +1,8 @@
 import FilterBar from '@/components/FilterBar';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 import React, { useState } from 'react';
-
-import {
-  Box,
-  Button,
-  Drawer,
-  IconButton,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
-import { Filter, X } from 'lucide-react';
+import DrawerToggleButton from './DrawerToggleButton';
+import FilterDrawer from './FilterDrawer';
 
 interface ResponsiveFilterBarProps {
   categories: string[];
@@ -21,7 +13,7 @@ interface ResponsiveFilterBarProps {
   onFilter: (selectedCategories: string[], sortOrder: string) => void;
 }
 
-const ResponsiveFilterBar: React.FC<ResponsiveFilterBarProps> = ({
+export const ResponsiveFilterBar: React.FC<ResponsiveFilterBarProps> = ({
   categories,
   selectedCategories,
   setSelectedCategories,
@@ -41,62 +33,20 @@ const ResponsiveFilterBar: React.FC<ResponsiveFilterBarProps> = ({
     <>
       {isMobile ? (
         <>
-          <Button
-            variant='contained'
-            size='large'
-            color='primary'
-            onClick={toggleDrawer}
-            aria-label='open filter drawer'
-            sx={{
-              position: 'fixed',
-              bottom: '2rem',
-              right: '2rem',
-              zIndex: 1000,
-              borderRadius: '50%',
-              width: 60,
-              height: 60,
-              padding: 0,
-            }}
-          >
-            <Filter size={24} />
-          </Button>
-          <Drawer anchor='top' open={isDrawerOpen} onClose={toggleDrawer}>
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Typography variant='h6' sx={{ ml: 2, mt: 2 }}>
-                Filtros
-              </Typography>
-              <IconButton
-                onClick={toggleDrawer}
-                aria-label='close filter drawer'
-              >
-                <X size={24} />
-              </IconButton>
-            </Box>
-            <FilterBar
-              categories={categories}
-              selectedCategories={selectedCategories}
-              setSelectedCategories={setSelectedCategories}
-              sortOrder={sortOrder}
-              setSortOrder={setSortOrder}
-              onFilter={(selectedCategories, sortOrder) => {
-                onFilter(selectedCategories, sortOrder);
-                toggleDrawer();
-              }}
-            />
-          </Drawer>
+          <DrawerToggleButton onClick={toggleDrawer} />
+          <FilterDrawer
+            open={isDrawerOpen}
+            onClose={toggleDrawer}
+            categories={categories}
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+            sortOrder={sortOrder}
+            setSortOrder={setSortOrder}
+            onFilter={onFilter}
+          />
         </>
       ) : (
-        <Box
-          sx={{
-            display: { xs: 'none', md: 'flex' },
-          }}
-        >
+        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
           <FilterBar
             categories={categories}
             selectedCategories={selectedCategories}
