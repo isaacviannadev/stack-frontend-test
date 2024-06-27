@@ -27,6 +27,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       <SearchArea>
         <TextField
           label='Buscar Produtos'
+          placeholder='Buscar Produtos'
           variant='outlined'
           size='small'
           sx={{ width: '50%' }}
