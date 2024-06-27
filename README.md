@@ -95,7 +95,7 @@ A API utilizada neste projeto é uma API de e-commerce gratuita e aberta ao púb
 
 Durante o desenvolvimento, foi observado que os produtos são frequentemente modificados ou removidos, o que pode impactar na exibição dos dados e no funcionamento do projeto. Recomendo que, para uma experiência mais estável, você considere utilizar uma versão local da API ou criar sua própria instância.
 
-Pedimos desculpas por qualquer inconveniente causado por essas alterações frequentes e agradecemos pela compreensão.
+Peço desculpas por qualquer inconveniente causado por essas alterações frequentes e agradeço pela compreensão.
 
 
 ## Versão Deployed do Projeto
