@@ -40,9 +40,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         alt={title}
       />
       <CardContent>
-        <Typography gutterBottom variant='h5' component='h5'>
-          {title}
-        </Typography>
+        <Typography gutterBottom>{title}</Typography>
         <Typography variant='body2' color='text.secondary'>
           {formattedPrice}
         </Typography>
@@ -57,7 +55,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           size='small'
           onClick={() => addToCart({ id, title, price, images })}
         >
-          Add to Cart
+          Adicionar ao carrinho
         </Button>
       </CardActions>
     </Card>
