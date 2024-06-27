@@ -2,6 +2,20 @@
 
 Este é um projeto de teste de frontend utilizando diversas tecnologias modernas como React, Next.js, Zustand, React Query, Material UI, Cypress e Jest. O objetivo do projeto é criar uma página home com uma listagem de produtos e um campo de busca, consumindo uma API de e-commerce gratuita.
 
+## Índice
+
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Pré-requisitos](#pré-requisitos)
+- [Instalação](#instalação)
+- [Rodando o Projeto](#rodando-o-projeto)
+- [Versão Deployada](#versão-deployada)
+- [Rodando os Testes](#rodando-os-testes)
+  - [Testes Unitários](#testes-unitários)
+  - [Testes End-to-End](#testes-end-to-end)
+- [Contribuição](#contribuição)
+
+
 ## Tecnologias Utilizadas
 
 - **React**: Biblioteca JavaScript para construção de interfaces de usuário.
@@ -71,6 +85,9 @@ Este é um projeto de teste de frontend utilizando diversas tecnologias modernas
     # ou
     yarn install
     ```
+
+## Versão Deployed do Projeto
+Você pode acessar a versão publicada do projeto (deployed) através do link: [https://stack-frontend-test.vercel.app/](https://stack-frontend-test.vercel.app/) 
 
 ## Rodando o Projeto
 
