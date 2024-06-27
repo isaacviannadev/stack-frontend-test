@@ -94,4 +94,17 @@ npm run test
 yarn test
 ```
 
+## Testes End-to-End
+Para rodar os testes end-to-end com o Cypress:
+
+Abra o Cypress:
+
+```sh
+npm run cypress:open
+# ou
+yarn cypress:open
+``` 
+
+Execute os testes através da interface do Cypress.
+
 Feito com ♥️ por Isaac Vianna
