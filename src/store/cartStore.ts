@@ -9,7 +9,7 @@ interface CartItem {
   quantity: number;
 }
 
-interface CartState {
+export interface CartState {
   cart: CartItem[];
   isOpen: boolean;
   totalItems: number;

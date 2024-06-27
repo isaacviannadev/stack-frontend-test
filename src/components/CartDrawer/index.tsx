@@ -6,7 +6,7 @@ import { Box, Drawer, List } from '@mui/material';
 import CartHeader from './CartHeader';
 import CartItem from './CartItem';
 
-const CartDrawer: React.FC = () => {
+export const CartDrawer: React.FC = () => {
   const { cart, isOpen, toggleDrawer } = useStore();
 
   return (

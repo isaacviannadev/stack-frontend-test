@@ -4,7 +4,7 @@ import { CircularProgress } from '@mui/material';
 import { LoadingContainer } from './styled';
 
 const LoadingComponent: React.FC = () => (
-  <LoadingContainer>
+  <LoadingContainer aria-label='loading-component'>
     <CircularProgress />
   </LoadingContainer>
 );

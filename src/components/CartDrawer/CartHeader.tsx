@@ -16,7 +16,13 @@ export const CartHeader: React.FC<CartHeaderProps> = ({ onClose }) => {
       }}
     >
       <Typography variant='h6'>Seu Carrinho</Typography>
-      <IconButton color='primary' edge='end' onClick={onClose}>
+      <IconButton
+        color='primary'
+        edge='end'
+        onClick={onClose}
+        name='close-cart'
+        aria-label='close-cart'
+      >
         <X />
       </IconButton>
     </Box>

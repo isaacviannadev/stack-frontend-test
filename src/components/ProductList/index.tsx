@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Product } from '@/types/product';
 import { normalizeImages } from '@/utils/normalizeImages';
 import { Grid } from '@mui/material';
 import ErrorComponent from '../ErrorComponent';
@@ -7,10 +8,10 @@ import ProductCard from '../ProductCard';
 import { ProductGrid } from './styled';
 
 interface ProductListProps {
-  products: any[];
+  products: Product[];
 }
 
-const ProductList: React.FC<ProductListProps> = ({ products }) => {
+export const ProductList: React.FC<ProductListProps> = ({ products }) => {
   if (!products.length) {
     return <ErrorComponent message='No products found' />;
   }

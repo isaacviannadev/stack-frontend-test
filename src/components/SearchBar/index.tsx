@@ -34,13 +34,21 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyPress}
         />
-        <IconButton color='primary' onClick={handleSearch}>
+        <IconButton
+          color='primary'
+          onClick={handleSearch}
+          aria-label='search-button'
+        >
           <Search size={24} />
         </IconButton>
       </SearchArea>
 
       <Badge badgeContent={totalItems} color='secondary'>
-        <IconButton color='primary' onClick={toggleDrawer}>
+        <IconButton
+          color='primary'
+          onClick={toggleDrawer}
+          aria-label='cart-button'
+        >
           <ShoppingCart size={24} />
         </IconButton>
       </Badge>

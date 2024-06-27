@@ -38,6 +38,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
           edge='end'
           color='primary'
           onClick={() => decrementItem(item.id)}
+          aria-label='minus-item'
         >
           <Minus size={14} />
         </IconButton>
@@ -45,6 +46,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
           edge='end'
           color='primary'
           onClick={() => incrementItem(item.id)}
+          aria-label='plus-item'
         >
           <Plus size={14} />
         </IconButton>
