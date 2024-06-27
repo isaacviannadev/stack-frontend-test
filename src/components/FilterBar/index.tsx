@@ -19,7 +19,7 @@ interface FilterBarProps {
   onFilter: (selectedCategories: string[], sortOrder: string) => void;
 }
 
-const FilterBar: React.FC<FilterBarProps> = ({
+export const FilterBar: React.FC<FilterBarProps> = ({
   categories,
   selectedCategories,
   setSelectedCategories,
