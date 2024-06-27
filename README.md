@@ -9,7 +9,7 @@ Este é um projeto de teste de frontend utilizando diversas tecnologias modernas
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
 - [Rodando o Projeto](#rodando-o-projeto)
-- [Versão Deployada](#versão-deployada)
+- [Versão Deployada do Projeto](#versão-deployada-do-projeto)
 - [Rodando os Testes](#rodando-os-testes)
   - [Testes Unitários](#testes-unitários)
   - [Testes End-to-End](#testes-end-to-end)
