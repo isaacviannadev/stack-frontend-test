@@ -16,6 +16,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     onSearch(query);
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <SearchContainer>
       <SearchArea>
@@ -26,6 +32,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
           sx={{ width: '50%' }}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyPress}
         />
         <IconButton color='primary' onClick={handleSearch}>
           <Search size={24} />

@@ -27,14 +27,13 @@ const FilterBar: React.FC<FilterBarProps> = ({
   setSortOrder,
   onFilter,
 }) => {
-  const { handleCategoryChange, handleSortOrderChange, handleFilter } =
-    useFilter({
-      selectedCategories,
-      setSelectedCategories,
-      sortOrder,
-      setSortOrder,
-      onFilter,
-    });
+  const { handleCategoryChange, handleSortOrderChange } = useFilter({
+    selectedCategories,
+    setSelectedCategories,
+    sortOrder,
+    setSortOrder,
+    onFilter,
+  });
 
   return (
     <Box
