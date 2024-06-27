@@ -8,8 +8,9 @@ Este é um projeto de teste de frontend utilizando diversas tecnologias modernas
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
+- [Aviso Importante](#aviso-importante)
 - [Rodando o Projeto](#rodando-o-projeto)
-- [Versão Deployed do Projeto](#versão-deployed-do-projeto)
+- [Versão Deployada](#versão-deployada)
 - [Rodando os Testes](#rodando-os-testes)
   - [Testes Unitários](#testes-unitários)
   - [Testes End-to-End](#testes-end-to-end)
@@ -86,6 +87,17 @@ Este é um projeto de teste de frontend utilizando diversas tecnologias modernas
     yarn install
     ```
 
+## Aviso Importante
+
+&#x1F590; **Atenção:**
+
+A API utilizada neste projeto é uma API de e-commerce gratuita e aberta ao público, disponível em [Platzi Fake API](https://fakeapi.platzi.com/). Devido ao seu caráter aberto, os dados dos produtos podem ser frequentemente alterados ou deletados por outros usuários.
+
+Durante o desenvolvimento, foi observado que os produtos são frequentemente modificados ou removidos, o que pode impactar na exibição dos dados e no funcionamento do projeto. Recomendo que, para uma experiência mais estável, você considere utilizar uma versão local da API ou criar sua própria instância.
+
+Pedimos desculpas por qualquer inconveniente causado por essas alterações frequentes e agradecemos pela compreensão.
+
+
 ## Versão Deployed do Projeto
 Você pode acessar a versão publicada do projeto (deployed) através do link: [https://stack-frontend-test.vercel.app/](https://stack-frontend-test.vercel.app/) 
 
@@ -124,4 +136,4 @@ yarn cypress:open
 
 Execute os testes através da interface do Cypress.
 
-Feito com ♥️ por Isaac Vianna
+Feito com ❤️ por Isaac Vianna
