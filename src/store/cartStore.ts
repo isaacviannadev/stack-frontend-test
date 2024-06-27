@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist, PersistOptions } from 'zustand/middleware';
 
 interface CartItem {
   id: number;
@@ -19,46 +20,54 @@ interface CartState {
   toggleDrawer: () => void;
 }
 
-export const useStore = create<CartState>((set) => ({
-  cart: [],
-  isOpen: false,
-  totalItems: 0,
-
-  addToCart: (item) =>
-    set((state) => {
-      const existingItem = state.cart.find((i) => i.id === item.id);
-      if (existingItem) {
-        return {
+export const useStore = create(
+  persist<CartState>(
+    (set) => ({
+      cart: [],
+      isOpen: false,
+      totalItems: 0,
+      addToCart: (item) =>
+        set((state) => {
+          const existingItem = state.cart.find((i) => i.id === item.id);
+          if (existingItem) {
+            return {
+              cart: state.cart.map((i) =>
+                i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+              ),
+              totalItems: state.totalItems + 1,
+            };
+          }
+          return {
+            cart: [...state.cart, { ...item, quantity: 1 }],
+            totalItems: state.totalItems + 1,
+          };
+        }),
+      incrementItem: (id) =>
+        set((state) => ({
           cart: state.cart.map((i) =>
-            i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+            i.id === id ? { ...i, quantity: i.quantity + 1 } : i
           ),
           totalItems: state.totalItems + 1,
-        };
-      }
-      return {
-        cart: [...state.cart, { ...item, quantity: 1 }],
-        totalItems: state.totalItems + 1,
-      };
+        })),
+      decrementItem: (id) =>
+        set((state) => ({
+          cart: state.cart
+            .map((i) => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i))
+            .filter((i) => i.quantity > 0),
+          totalItems: state.totalItems - 1,
+        })),
+      removeItem: (id) =>
+        set((state) => ({
+          totalItems:
+            state.totalItems - state.cart.find((i) => i.id === id)!.quantity,
+          cart: state.cart.filter((i) => i.id !== id),
+        })),
+      toggleDrawer: () => set((state) => ({ isOpen: !state.isOpen })),
     }),
-  incrementItem: (id) =>
-    set((state) => ({
-      cart: state.cart.map((i) =>
-        i.id === id ? { ...i, quantity: i.quantity + 1 } : i
-      ),
-      totalItems: state.totalItems + 1,
-    })),
-  decrementItem: (id) =>
-    set((state) => ({
-      cart: state.cart
-        .map((i) => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i))
-        .filter((i) => i.quantity > 0),
-      totalItems: state.totalItems - 1,
-    })),
-  removeItem: (id) =>
-    set((state) => ({
-      totalItems:
-        state.totalItems - state.cart.find((i) => i.id === id)!.quantity,
-      cart: state.cart.filter((i) => i.id !== id),
-    })),
-  toggleDrawer: () => set((state) => ({ isOpen: !state.isOpen })),
-}));
+    {
+      name: 'cart-storage',
+    } as PersistOptions<CartState>
+  )
+);
+
+export default useStore;

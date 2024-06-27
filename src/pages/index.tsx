@@ -8,6 +8,7 @@ import ProductList from '@/components/ProductList';
 import SearchBar from '@/components/SearchBar';
 import { Box } from '@mui/material';
 
+import { useProducts } from '@/hooks/useProducts';
 import { fetchProducts } from '@/services/getProducts';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
@@ -15,22 +16,18 @@ const HomePage: React.FC = ({
   initialProducts,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [products, setProducts] = useState(initialProducts);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
+  const {
+    data: products = initialProducts,
+    isLoading,
+    error,
+  } = useProducts(searchQuery) as {
+    data: any[];
+    isLoading: boolean;
+    error: Error | null;
+  };
 
-  const handleSearch = async (query: string) => {
+  const handleSearch = (query: string) => {
     setSearchQuery(query);
-    setIsLoading(true);
-    setError(null);
-    try {
-      const products = await fetchProducts(query);
-      setProducts(products);
-    } catch (error) {
-      setError(error as Error);
-    } finally {
-      setIsLoading(false);
-    }
   };
 
   return (
