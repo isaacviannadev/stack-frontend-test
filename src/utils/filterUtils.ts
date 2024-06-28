@@ -7,7 +7,7 @@ import { Product } from '@/types/product';
  * @returns An array of unique categories sorted in ascending order.
  */
 export const extractCategories = (products: Product[]): string[] => {
-  const allCategories = products.map((product) => product.category.name);
+  const allCategories = products.map((product) => product.category);
   const uniqueCategories = Array.from(new Set(allCategories));
   const sortedCategories = uniqueCategories.toSorted((a, b) =>
     a.localeCompare(b)
@@ -31,7 +31,7 @@ export const applyFilters = (
 
   if (selectedCategories.length > 0 && !selectedCategories.includes('Todas')) {
     filtered = filtered.filter((product) =>
-      selectedCategories.includes(product.category.name)
+      selectedCategories.includes(product.category)
     );
   }
 

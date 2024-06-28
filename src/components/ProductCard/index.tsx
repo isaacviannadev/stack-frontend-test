@@ -15,14 +15,14 @@ interface ProductCardProps {
   id: number;
   title: string;
   price: number;
-  images: string[];
+  image: string;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   id,
   title,
   price,
-  images,
+  image,
 }) => {
   const addToCart = useStore((state) => state.addToCart);
 
@@ -36,7 +36,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           height: 240,
           objectFit: 'cover',
         }}
-        image={images[0]}
+        image={image}
         alt={title}
       />
       <CardContent>
@@ -53,7 +53,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       >
         <Button
           size='small'
-          onClick={() => addToCart({ id, title, price, images })}
+          onClick={() => addToCart({ id, title, price, image })}
         >
           Adicionar ao carrinho
         </Button>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Product } from '@/types/product';
-import { normalizeImages } from '@/utils/normalizeImages';
 import { Grid } from '@mui/material';
 import ErrorComponent from '../ErrorComponent';
 import ProductCard from '../ProductCard';
@@ -24,7 +23,7 @@ export const ProductList: React.FC<ProductListProps> = ({ products }) => {
             id={product.id}
             title={product.title}
             price={product.price}
-            images={normalizeImages(product.images)}
+            image={product.image}
           />
         </Grid>
       ))}

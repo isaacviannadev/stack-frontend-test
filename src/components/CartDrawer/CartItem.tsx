@@ -16,7 +16,7 @@ interface CartItemProps {
     id: number;
     title: string;
     price: number;
-    images: string[];
+    image: string;
     quantity: number;
   };
 }
@@ -27,7 +27,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
   return (
     <ListItem>
       <ListItemAvatar>
-        <Avatar src={item.images[0]} />
+        <Avatar src={item.image} />
       </ListItemAvatar>
       <ListItemText
         primary={item.title}
